@@ -1,0 +1,228 @@
+% ---------- Anexos (opcionais) ----------
+\chapter{Código completo do Relógio de Varredura Mecânica}
+
+\begin{lstlisting}
+/* chamada que acende o ponteiro dos minutos
+ * deve ser chamada com os grupos 1, 2, 3 e 4 com o
+ * seguinte comando:
+ * blinkMin(g1_a, g2_a, g3_a, g4_a);
+*/
+void blinkMin (int g1, int g2, int g3, int g4)
+{
+      //acende os leds
+      digitalWrite(g4,LOW);
+      digitalWrite(g3,LOW);
+      digitalWrite(g2,LOW);
+      digitalWrite(g1,LOW);
+      //mantem acesos pelo tempo de piscagem
+      delay(pisca);
+      //apaga os leds
+      digitalWrite(g4,HIGH);
+      digitalWrite(g3,HIGH);
+      digitalWrite(g2,HIGH);
+      digitalWrite(g1,HIGH);
+}
+
+/* chamada que acende o ponteiro da hora
+ * deve ser chamada com os grupos 3 e 4, com o
+ * seguinte comando:
+ * blinkHora(g3_v, g4_v);
+*/
+void blinkHora (int g3, int g4)
+{
+      //acende os leds
+      digitalWrite(g4,LOW);
+      digitalWrite(g3,LOW);
+      //mantem aceso pelo tempo de piscagem
+      delay(pisca);
+      //apaga os leds
+      digitalWrite(g4,HIGH);
+      digitalWrite(g3,HIGH);
+}
+
+/* funcao que incrementa o horario apos um minuto */
+void incrementaHorario()
+{
+      //incrementa os minutos
+      minuto++;
+
+      //se for 60min, tem que zerar os min e incrementar as horas
+      if(minuto == 60)
+      {
+            minuto = 0;
+            hora++;
+
+            //se a hora for igual a 12, zera
+            if(hora == 12)
+                hora = 0;
+      }
+}
+
+/* funcao que faz tudo acontecer... faz com que os leds mostrem
+ * um relogio usando as funcoes blinkHora e blinkMin
+
+ * eh dividida em tres partes.. se o ponteiro das horas esta na
+ * frente do dos minutos, se o dos minutos esta na frente ou se
+ * estao alinhados. isso depende de saber qual o angulo entre os
+ * ponteiro e a origem (o eixo vertical, apontando diretamente pra
+ * cima).
+ */
+void clock ()
+{
+      //calcula o angulo do ponteiro em relacao a origem
+      int ang_min = minuto*6;
+
+      //calcula o angulo do ponteiro das horas
+      int ang_hora = (hora*30) + (minuto/2);
+
+      //se o ponteiro das horas estiver antes dos minutos
+      if (ang_hora < ang_min)
+      {
+             //diferenca de tempo entre os ponteiros
+             int atraso_entre = ((ang_min-ang_hora)*arco_min);
+
+             /*tempo entre o ultimo ponteiro de uma volta e o primeiro da
+             proxima*/
+             int atraso_apos = ((360-ang_min+ang_hora)*arco_min);
+
+             //delay entre a origem e o primeiro ponteiro
+             int atraso_antes = hora*arco_min;
+
+             //aguarda o tempo entre a origem e o primeiro ponteiro
+             delayMicroseconds(atraso_antes);
+
+             //loop que pisca os ponteiro sequencialmente 2400 vezes
+             //variavel contadora
+             int n = 0;
+
+             for(n=0; n<rpm; n++)
+             {
+                   blinkHora(g3_v, g4_v);
+                   delayMicroseconds(atraso_entre);
+                   blinkMin(g1_a, g2_a, g3_a, g4_a);
+                   delayMicroseconds(atraso_apos);
+             }
+
+             //apos um minuto (2400 voltas) chama a funcao novamente
+             clock();
+      }
+
+      //se o ponteiro dos minutos esta antes das horas
+      else if (ang_min<ang_hora)
+      {
+             //diferenca de tempo entre os ponteiros
+             int atraso_entre = ((ang_hora-ang_min)*arco_min);
+             /*tempo entre o ultimo ponteiro de uma volta e o primeiro da
+             proxima*/
+             int atraso_apos = ((360-ang_hora+ang_min)*arco_min);
+             //delay entre a origem e o primeiro ponteiro
+             int atraso_antes = minuto*arco_min;
+
+             //aguarda o tempo entre a origem e o primeiro ponteiro
+             delayMicroseconds(atraso_antes);
+
+             //loop que pisca os ponteiro sequencialmente 2400 vezes
+             //variavel contadora
+             int n = 0;
+
+             for(n=0; n<2400; n++)
+             {
+                   blinkMin(g1_a, g2_a, g3_a, g4_a);
+                   delayMicroseconds(atraso_entre);
+                   blinkHora(g3_v, g4_v);
+                   delayMicroseconds(atraso_apos);
+             }
+
+             //apos 1min roda a funcao mais uma vez
+             clock();
+      }
+
+      else
+      {
+            int atraso_antes = ang_min*arco_min;
+            int atraso_apos = 360*arco_min;
+
+            //loop
+            int n = 0;
+            for(n=0; n<2400; n++)
+            {
+                  blinkHora(g3_v, g4_v);
+                  blinkMin(g1_a, g2_a, g3_a, g4_a);
+                  delayMicroseconds(atraso_apos);
+            }
+
+            clock();
+      }
+}
+
+/*
+ * programa que torna um trilho de leds girando em um relogio usando o
+ * fenomeno da POV.
+
+ * as saidas pares sao verdes, as impares sao azuis e a borda eh
+ * vermelha
+
+ * o ponteiro das horas eh verde e o dos minutos eh azul
+*/
+
+
+int hora = 13;
+int minuto = 50;
+
+int rpm = 2400; //valor medido de rotacoes por minutos
+int arco_min = 416; //valor do arco de 1min (6 graus) em micros
+
+int accel = 0; /*valor para o cooler acelerar e posicionar a placa
+na posicao norte (apontada para cima), em s*/
+
+int pisca = 0; //valor que um led fica aceso ao piscar, em micros
+
+
+//da nome para as saidas de cada grupo
+int g4_v = 12;
+int g4_a = 11;
+int g3_v = 10;
+int g3_a = 9;
+int g2_v = 8;
+int g2_a = 7;
+int g1_v = 6;
+int g1_a = 5;
+int borda = 4;
+
+
+void setup()
+{
+      //seta os pinos como saidas
+      pinMode(g4_v,OUTPUT);
+      pinMode(g4_a,OUTPUT);
+      pinMode(g3_v,OUTPUT);
+      pinMode(g3_a,OUTPUT);
+      pinMode(g2_v,OUTPUT);
+      pinMode(g2_a,OUTPUT);
+      pinMode(g1_v,OUTPUT);
+      pinMode(g1_a,OUTPUT);
+      pinMode(borda,OUTPUT);
+
+      //desliga os leds
+      digitalWrite(g4_v,HIGH);
+      digitalWrite(g4_a,HIGH);
+      digitalWrite(g3_v,HIGH);
+      digitalWrite(g3_a,HIGH);
+      digitalWrite(g2_v,HIGH);
+      digitalWrite(g2_a,HIGH);
+      digitalWrite(g1_v,HIGH);
+      digitalWrite(g1_a,HIGH);
+      digitalWrite(borda,HIGH);
+}
+
+void loop ()
+{
+      //tempo entre ligar o arduino e colocar o cooler na tomada, em s
+      delay(5000);
+
+      //tempo para o cooler acelerar ate a posicao de origem
+      delay(accel);
+      //loading();
+      clock();
+}
+\end{lstlisting} 

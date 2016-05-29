@@ -1,0 +1,58 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{1.52 }
+
+\bibitem[Anderson 1993]{Anderson1993}
+\abntrefinfo{Anderson}{ANDERSON}{1993}
+{ANDERSON, J. \textbf{The Myth of Persistence of Vision Revisited}. 1993.
+Dispon{\'\i}vel em:
+  $<$http://academic.evergreen.edu/curricular/emergingorder/seminar/week\_1\_anderson.pdf$>$.
+  Acesso em: 17 de novembro de 2013.}
+
+\bibitem[Arduino 2014]{Arduino2014}
+\abntrefinfo{Arduino}{ARDUINO}{2014a}
+{ARDUINO. \textbf{Arduino Core functions and Libraries}. 2014.
+Dispon{\'\i}vel em: $<$http://en.wikipedia.org/wiki/persistence\_of\_vision$>$.
+  Acesso em: 02 de janeiro de 2014.}
+
+\bibitem[Arduino 2014]{ArduinoRef2014}
+\abntrefinfo{Arduino}{ARDUINO}{2014b}
+{ARDUINO. \textbf{Arduino Reference}. 2014.
+Dispon{\'\i}vel em: $<$http://arduino.cc/en/Reference/HomePage$>$. Acesso em:
+  02 de janeiro de 2014.}
+
+\bibitem[Arduino 2014]{Arduino_attachInterrupt()}
+\abntrefinfo{Arduino}{ARDUINO}{2014c}
+{ARDUINO. \textbf{Arduino Reference}. 2014.
+Dispon{\'\i}vel em: $<$http://arduino.cc/en/Reference/attachInterrupt$>$.
+  Acesso em: 02 de janeiro de 2014.}
+
+\bibitem[Blick 2002]{Blick2002}
+\abntrefinfo{Blick}{BLICK}{2002}
+{BLICK, B. \textbf{"Propeller Clock" Mechanically Scanned LED Clock}. 2002.
+Dispon{\'\i}vel em:
+  $<$http://bobblick.com/techref/projects/propclock/propclock.html$>$. Acesso
+  em: 17 de novembro de 2013.}
+
+\bibitem[Kaufman 1974]{Kaufman1974}
+\abntrefinfo{Kaufman}{KAUFMAN}{1974}
+{KAUFMAN, L. \textbf{Sight and Mind: An Introduction to Visual Perception}.
+  368: NY: Oxford University Press, 1974.}
+
+\bibitem[RoboLivre 2014]{RoboLivre2014}
+\abntrefinfo{RoboLivre}{ROBOLIVRE}{2014}
+{ROBOLIVRE. \textbf{Sensor de Infravermelho}. 2014.
+Dispon{\'\i}vel em:
+  $<$http://robolivre.org/conteudo/sensor-de-infravermelho$>$. Acesso em: 02 de
+  janeiro de 2014.}
+
+\bibitem[Wikipedia 2013]{Wikipedia2013}
+\abntrefinfo{Wikipedia}{WIKIPEDIA}{2013}
+{WIKIPEDIA. \textbf{Persistence of Vision}. 2013.
+Dispon{\'\i}vel em: $<$http://en.wikipedia.org/wiki/persistence\_of\_vision$>$.
+  Acesso em: 17 de novembro de 2013.}
+
+\end{thebibliography}

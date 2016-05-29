@@ -1,0 +1,15 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{1.52 }
+
+\bibitem[Princeton 2013]{Princeton2009}
+\abntrefinfo{Princeton}{PRINCETON}{2013}
+{PRINCETON. \textbf{Persistence of Vision}. 2013.
+Dispon{\'\i}vel em:
+  $<$http://www.princeton.edu/~achaney/tmve/wiki100k/docs/Persistence_of_vision.html$>$.
+  Acesso em: 17 de novembro de 2013.}
+
+\end{thebibliography}

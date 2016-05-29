@@ -1,0 +1,108 @@
+%---------- Primeiro Capitulo ----------
+\chapter{Introdução}
+\label{chap:intro}
+
+\section{Sobre} %ANDRË
+O propeller clock depende de uma técnica chamada \sigla{POV}{Persistência da visão} (Persistence of vision, em inglês). Persistência da visão consiste no fenômeno observado quando um objeto visto pelo olho humano persiste na retina por uma fração de segundo após a sua percepção. Assim, imagens projetadas com uma frequência superior a 16Hz associam-se na retina sem interrupção.
+
+Segundo essa teoria, ao captar uma imagem, o olho humano levaria uma fração de tempo para "esquecê-la". Assim, quando os frames de um filme de cinema são projetados na tela, o olho misturaria os frames anteriores com os seguintes, provocando a ilusão de movimento: um objeto colocado à esquerda num frame, aparecendo à direita no frame seguinte, cria a ilusão de que o objeto se desloca da esquerda para a direita.
+
+Posteriormente foi comprovado que este fenômeno é mais complexo, e melhor explicado quando divido entre Movimento Phi e Movimento Beta, pelo psicólogo checo Max Wertheimer. Porém esta análise fisiológica da visão foge do escopo desse trabalho.
+%não sei se deixa esse parágrafo, não tem sentido falarmos do movimento phi e beta se não vamos nem explicar o que eles são no projeto. Por mim dá pra tirar.
+
+A persistência da visão pode ser observada no cotidiano ao se ligar um ventilador. Assim que o ventilador acelera, não é possível ver as hélices individualmente, somente um círculo.
+
+Isso se aplica ao nosso trabalho pois ao rotacionar rapidamente uma hélice com diversos \sigla{LED}{Diodo emissor de luz}s, e ao coordenar o acendimento dos mesmos, é possível produzir imagens claramente visíveis ao olho humano.
+
+\section{Componentes} %GEANINE
+%Lista dos componentes utilizados e custo aproximado de cada um
+A tabela 1 mostra uma relação dos materiais necessários para a confecção do display de varrimento mecânico.
+
+\begin{table}[!htb]
+	\centering
+	\label{tab:lista-materiais-propeller}
+	\begin{tabular}{ccc}
+		\hline
+		Produto & Quantidade & Valor (Individual) \\
+		\hline
+		Arduino Nano & 1 & R\$xx,xx\\
+		Latch 74LS373 & 1 & R\$xx,xx \\
+	    Regulador de tensão 5V - 7805 & 1 & R\$xx,xx \\
+		Capacitor 47\simbolo{$\mu$}{micro}F & 1 & R\$xx,xx \\
+        Cristal 40MHz & 1 & R\$xx,xx \\
+        Matriz de Resistores 330 & 2 & R\$xx,xx \\
+        LED RGB & 16 & R\$xx,xx \\
+        Socket 28 pinos & 1 & R\$xx,xx \\
+        Socket 20 pinos & 2 & R\$xx,xx \\
+        Diodo emissor IR & 1 & R\$xx,xx \\
+        Fototransistor & 1 & R\$xx,xx \\
+        SIP 30 pinos & 1 & R\$xx,xx \\
+        Protoboard & 1 & R\$xx,xx \\
+        Cooler 3800 RPM & 1 & R\$xx,xx \\
+        Slot Bateria 9V & 1 & R\$xx,xx \\
+		\hline
+	\end{tabular}
+    \caption[Lista de materiais utilizados no Display de Varrimento Mecânico]{Lista de materiais utilizados no Display de Varrimento Mecânico}
+\end{table}
+
+
+Além do desenvolvimento do display de varrimento mecânico, foi necessário desenvolver um Tacômetro digital para Arduino, para ser possível testar a frequência do Cooler utilizado no projeto.
+
+A lista de materiais para este projeto está listada na tabela 2:
+
+\begin{table}[!htb]
+	\centering
+	\label{tab:lista-materiais-tacometro}
+	\begin{tabular}{ccc}
+		\hline
+		Produto & Quantidade & Valor (Individual) \\
+		\hline
+		Arduino Nano & 1 & R\$xx,xx \\
+		LCD 16x2 & 1 & R\$xx,xx \\
+	    Trimpot 5k\simbolo{$\Omega$}{Omega} & 1 & R\$xx,xx \\
+        SIP 30 pinos & 1 & R\$xx,xx \\
+        Transistor NPN 2n2222 & 2 & R\$xx,xx \\
+        LED IR & 1 & R\$xx,xx \\
+        Fototransistor & 1 & R\$xx,xx \\
+        Resistor 10{$\Omega$} & 1 & R\$xx,xx \\
+        Resistor 100k{$\Omega$} & 1 & R\$xx,xx \\
+        Resistor 15k{$\Omega$} & 1 & R\$xx,xx \\
+        Protoboard & 1 & R\$xx,xx \\
+		\hline
+	\end{tabular}
+    \caption[Lista de materiais utilizados no Tacômetro Digital]{Lista de materiais utilizados no Tacômetro Digital}
+\end{table}
+
+%b) "Quais partes constituem o dispositivo e como interagem entre si?" (utilizar um diagrama de blocos como auxiliar na descrição)
+
+\section{Conteúdos Envolvidos} %LEONARDO
+
+%a) Quais assuntos estão sendo estudados para a elaboração do projeto?
+%b) Contextualização dos assuntos dentro do projeto (onde cada assunto se encaixa e de que forma)
+
+\section{Metodologia de Execução} %TODOS JUNTOS
+
+%a) Quais são as tarefas *específicas* serão necessárias para a execução do projeto? Descrever brevemente o que envolve cada tarefa.
+%b) Quais as relações de dependência entre as tarefas?
+%c) Quanto tempo está previsto para cada tarefa (estimativa)?
+%Sugestão: utilizar um diagrama Gantt 
+
+Será necessário construir peças, realizar testes e desenvolver o software do projeto. Construiremos um tacômetro, um motor para rotacionar a placa e uma PCI.
+A construção do motor depende da construção do tacômetro, enquanto o desenvolvimento do software depende de toda a parte de hardware estar pronta pois testes são fundamentais durante o processo de desenvolvimento.
+A duração de cada tarefa varia, com algumas durando apenas um dia e outras mais de uma semana. A tarefa que mais levará tempo é a redação da monografia, pois será feita com o decorrer do projeto.
+
+Construção do tacômetro:
+Serão usados um LED infravermelho e um receptor infravermelho, além do cooler onde serão posicionados. Com esse sistema é possível contar quantas vezes o sinal é cortado pelas hélices do cooler, e assim podemos calcular o número de rotações por minuto do sistema. Os cálculos serão efetuados com um arduino.
+
+Construção da PCI:
+São duas etapas, o design e a construção. No design será desenhado como a placa será impressa e onde irão os componentes. Na construção, produziremos a placa com peróxido e depois soldaremos os componentes nela.
+
+Construção do motor:
+Para construir o motor, as hélices do motor serão removidas e o motor será fixado em uma base com uma fonte de alimentação.
+
+Integração das peças de hardware:
+Para poder prosseguir com o projeto e finalizar o hardware, a PCI, o motor e o tacômetro serão integrados.
+
+Desenvolvimento do software:
+Será desenvolvido um algoritmo que coordene o acender e apagar dos LEDs para que, ao girarem, formarão uma imagem. O arduino será programado. Para programar, usaremos uma interface no computador que nos permite programar em C e passar esse código para o arduino através da uma porta USB.
+

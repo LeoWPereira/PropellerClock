@@ -1,0 +1,15 @@
+%---------- Terceiro Capitulo ----------
+\chapter{Conclusão}
+\label{chap:concl}
+
+Os objetivos sugeridos neste projeto não foram alcançados integralmente. Após analisar os resultados pudemos tirar várias conclusões, levantar as causas dos principais problemas e até mesmo sugerir soluções para a continuidade deste projeto ou desenvolvimento de trabalhos similares.
+
+O cronograma proposto foi cumprido em sua maior parte, contudo, quando foi criado pela equipe, não previa os problemas mecânicos que surgiram ao longo do desenvolvimento do projeto. O resultado obtido apresentou limitações na parte física que não permitiram que o efeito final fosse visualizado de forma correta. Foi possível criar os ponteiros e as bordas do relógio, porém, tivemos dificuldades em mantê-los na posição desejada.
+
+Com base no exame dos experimentos empíricos realizados após o projeto ter sido concluído, foi possível apurar as causas e determinar exatamente onde estava o erro. Percebemos que, devido à alta taxa de rotações por minuto do motor, não havia estabilidade suficiente no sistema, conforme a base tremia, o número de RPM mudava. Mesmo após termos fixado a base da melhor maneira que pudemos, a velocidade das hélices ainda variava demasiadamente, impossibilitando o software de funcionar como deveria. Para resolver este problema poderia ser utilizado um motor com menos potência, porém esta solução apresentaria um risco à imagem final exibida nos LEDs, uma vez que existe uma frequência mínima para que o relógio seja visto perfeitamente à olho nu. Poderia também, ter sido adicionado ao projeto um sensor de interrupção, indicando as rotações do motor. Desta forma o algoritmo teria que ser levemente modificado para que os LEDs piscassem exatamente no momento e na posição certa, utilizando como referência, além do tempo, os dados retornados pelo sensor.
+
+Um resultado positivo que foi apresentado nos testes é o do algoritmo desenvolvido pela equipe. Quando não existem limitações físicas, o software funciona corretamente. No futuro, se outros projetos equivalentes forem realizados, este relatório pode ser utilizado como referência neste quesito.
+
+Para continuidade deste projeto seria necessária a implementação de um sensor de interrupção, semelhante ao tacômetro desenvolvido no início do trabalho. Desta forma, o número de rotações por minuto do motor, juntamente com a hélice, seria completamente supervisionado pelo Arduino, possibilitando uma maior precisão na posição dos LEDs.
+
+Apesar de não ter sido concluído completamente, este projeto trouxe resultados satisfatórios para toda a equipe, introduzindo novos conteúdos e apresentando desafios que testaram a capacidade dos alunos envolvidos.
